@@ -18,6 +18,9 @@ const config = defineConfig({
     tanstackStart(),
     viteReact(),
   ],
+  optimizeDeps: {
+    include: ['@clerk/tanstack-react-start', 'cookie'],
+  },
 })
 
 export default config
