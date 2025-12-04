@@ -4,21 +4,14 @@
 
 @custom-variant dark (&:is(.dark *));
 
-body {
-  @apply m-0;
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family:
-    source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
 :root {
+  --font-sans:
+    'Geist', 'Geist Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  --font-mono:
+    'Geist Mono', 'Geist Mono Fallback', source-code-pro, Menlo, Monaco,
+    Consolas, 'Courier New', monospace;
   --base-50: lab(98.2487% 0.13262 -0.472021);
   --base-100: lab(96.1486% 0.269413 -0.982153);
   --base-200: lab(90.6739% 0.53075 -1.9261);
@@ -77,6 +70,9 @@ code {
   --fc-border-color: var(--border);
   --fc-page-bg-color: var(--muted);
   --fc-today-bg-color: var(--muted);
+  --sidebar-width: calc(var(--spacing) * 64);
+  --sidebar-width-icon: 3rem;
+  --header-height: calc(var(--spacing) * 14);
 }
 
 .dark {
@@ -159,6 +155,25 @@ code {
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  code {
+    font-family: var(--font-mono);
+  }
+
+  [data-slot='button'],
+  [data-slot='dialog-trigger'],
+  [data-slot='dropdown-menu-item'],
+  [data-slot='command-item'],
+  [data-slot='toggle-group-item'],
+  [data-slot='dropdown-menu-trigger'],
+  [data-slot='popover-trigger'],
+  [data-slot='tooltip-trigger'],
+  [data-slot='collapsible-trigger'] {
+    cursor: pointer !important;
   }
 }
 
